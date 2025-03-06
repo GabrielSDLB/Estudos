@@ -1,32 +1,32 @@
-// Interface base para café
+// Interface base para todos os cafés
 interface Cafe {
     getDescricao(): string;
     getCusto(): number;
 }
 
-// Implementação concreta do café básico
+// Implementação concreta do café simples
 class CafeSimples implements Cafe {
     getDescricao(): string {
-        return "Café Simples";
+        return "☕ Café Simples";
     }
 
     getCusto(): number {
-        return 5.00;
+        return 2.00;
     }
 }
 
-// Implementação concreta de outro tipo de café base
+// Implementação concreta do café expresso
 class CafeExpresso implements Cafe {
     getDescricao(): string {
-        return "Café Expresso";
+        return "☕ Café Expresso";
     }
 
     getCusto(): number {
-        return 7.00;
+        return 3.50;
     }
 }
 
-// Decorador base abstrato
+// Decorator abstrato
 abstract class DecoradorCafe implements Cafe {
     protected cafe: Cafe;
 
@@ -43,32 +43,10 @@ abstract class DecoradorCafe implements Cafe {
     }
 }
 
-// Decorador concreto para adicionar leite
+// Decoradores concretos
 class ComLeite extends DecoradorCafe {
     getDescricao(): string {
-        return `${this.cafe.getDescricao()}, com Leite`;
-    }
-
-    getCusto(): number {
-        return this.cafe.getCusto() + 2.00;
-    }
-}
-
-// Decorador concreto para adicionar chocolate
-class ComChocolate extends DecoradorCafe {
-    getDescricao(): string {
-        return `${this.cafe.getDescricao()}, com Chocolate`;
-    }
-
-    getCusto(): number {
-        return this.cafe.getCusto() + 3.00;
-    }
-}
-
-// Decorador concreto para adicionar canela
-class ComCanela extends DecoradorCafe {
-    getDescricao(): string {
-        return `${this.cafe.getDescricao()}, com Canela`;
+        return this.cafe.getDescricao() + " + 🥛 Leite";
     }
 
     getCusto(): number {
@@ -76,28 +54,40 @@ class ComCanela extends DecoradorCafe {
     }
 }
 
-// Decorador concreto para adicionar chantilly
-class ComChantilly extends DecoradorCafe {
+class ComChocolate extends DecoradorCafe {
     getDescricao(): string {
-        return `${this.cafe.getDescricao()}, com Chantilly`;
+        return this.cafe.getDescricao() + " + 🍫 Chocolate";
     }
 
     getCusto(): number {
-        return this.cafe.getCusto() + 2.50;
+        return this.cafe.getCusto() + 2.00;
     }
 }
 
-// Exemplo de uso
-// Criando um café expresso com leite e chocolate
-let meuCafe: Cafe = new CafeExpresso();
-meuCafe = new ComLeite(meuCafe);
-meuCafe = new ComChocolate(meuCafe);
-console.log(`Pedido: ${meuCafe.getDescricao()}`);
-console.log(`Valor Total: R$ ${meuCafe.getCusto().toFixed(2)}`);
+class ComCanela extends DecoradorCafe {
+    getDescricao(): string {
+        return this.cafe.getDescricao() + " + 🌶️ Canela";
+    }
 
-// Criando um café simples com canela e chantilly
-let outroCafe: Cafe = new CafeSimples();
-outroCafe = new ComCanela(outroCafe);
-outroCafe = new ComChantilly(outroCafe);
-console.log(`\nPedido: ${outroCafe.getDescricao()}`);
-console.log(`Valor Total: R$ ${outroCafe.getCusto().toFixed(2)}`);
+    getCusto(): number {
+        return this.cafe.getCusto() + 0.50;
+    }
+}
+
+class ComChantilly extends DecoradorCafe {
+    getDescricao(): string {
+        return this.cafe.getDescricao() + " + 🍦 Chantilly";
+    }
+
+    getCusto(): number {
+        return this.cafe.getCusto() + 1.00;
+    }
+}
+
+// Make classes globally available
+(window as any).CafeSimples = CafeSimples;
+(window as any).CafeExpresso = CafeExpresso;
+(window as any).ComLeite = ComLeite;
+(window as any).ComChocolate = ComChocolate;
+(window as any).ComCanela = ComCanela;
+(window as any).ComChantilly = ComChantilly;

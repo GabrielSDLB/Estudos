@@ -1,0 +1,17 @@
+{
+  "name": "structural-patterns-demo",
+  "version": "1.0.0",
+  "description": "Demo of structural design patterns",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc",
+    "watch": "tsc -w",
+    "serve": "http-server -c-1",
+    "start": "npm run build && npm run serve"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5",
+    "http-server": "^14.1.1",
+    "@types/node": "^18.11.18"
+  }
+}

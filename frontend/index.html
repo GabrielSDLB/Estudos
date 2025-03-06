@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structural Patterns Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        .pattern-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .pattern-button {
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .pattern-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .pattern-button.active {
+            background-color: #357a38;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .pattern-container {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .component {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        .control-button {
+            padding: 8px 16px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .control-button:hover {
+            background-color: #007095;
+            transform: translateY(-1px);
+        }
+
+        .media-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .player-section {
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .player-info {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .player-output {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        #components {
+            margin-top: 20px;
+        }
+
+        .output {
+            font-family: monospace;
+            white-space: pre;
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            border-left: 4px solid #ffa726;
+        }
+
+        #description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        #description p {
+            color: #666;
+        }
+
+        .pattern-container h2 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+
+        .component strong {
+            color: #1976d2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Structural Patterns Demo</h1>
+    
+    <div class="pattern-buttons">
+        <button class="pattern-button" onclick="window.setPattern('adapter')">Adapter Pattern</button>
+        <button class="pattern-button" onclick="window.setPattern('decorator')">Decorator Pattern</button>
+        <button class="pattern-button" onclick="window.setPattern('facade')">Facade Pattern</button>
+        <button class="pattern-button" onclick="window.setPattern('flyweight')">Flyweight Pattern</button>
+        <button class="pattern-button" onclick="window.setPattern('proxy')">Proxy Pattern</button>
+        <button class="pattern-button" onclick="window.setPattern('bridge')">Bridge Pattern</button>
+        <button class="pattern-button" onclick="window.setPattern('composite')">Composite Pattern</button>
+    </div>
+
+    <div class="pattern-container" id="patternDemo">
+        <div id="description"></div>
+        <div id="components"></div>
+        <div class="controls" id="controls"></div>
+    </div>
+
+    <!-- Load the compiled JavaScript files -->
+    <script src="dist/patterns/adapter.js"></script>
+    <script src="dist/patterns/decorator.js"></script>
+    <script src="dist/patterns/facade.js"></script>
+    <script src="dist/patterns/flyweight.js"></script>
+    <script src="dist/patterns/proxy.js"></script>
+    <script src="dist/patterns/bridge.js"></script>
+    <script src="dist/patterns/composite.js"></script>
+    <script src="dist/main.js"></script>
+</body>
+</html>

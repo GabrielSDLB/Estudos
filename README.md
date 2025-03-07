@@ -1,8 +1,10 @@
-# Padrões de Projeto Estruturais - Demo Interativa
+# Estudos de Padrões de Projeto e Clean Code
 
-Este repositório contém uma demonstração interativa dos padrões de projeto estruturais em TypeScript. A aplicação web permite explorar e interagir com diferentes implementações dos padrões estruturais mais comuns.
+Este repositório contém demonstrações e implementações de padrões de projeto estruturais, princípios SOLID, e exemplos de clean code em TypeScript.
 
-## Padrões Implementados
+## Frontend - Padrões de Projeto Estruturais
+
+### Padrões Implementados
 
 1. **Adapter Pattern**
    - Demonstra como adaptar interfaces incompatíveis
@@ -32,7 +34,43 @@ Este repositório contém uma demonstração interativa dos padrões de projeto 
    - Compõe objetos em estruturas de árvore
    - Exemplo: Sistema de arquivos com diretórios e arquivos
 
+## Backend - Servidor e Padrões
+
+### Proxy Reverso
+- Implementação de um servidor proxy reverso
+- Gerenciamento de requisições e redirecionamento
+- Testes unitários para validação do comportamento
+
+## Clean Code - Princípios SOLID
+
+### Single Responsibility Principle
+- Demonstração de código problemático
+- Solução aplicando o princípio
+- Testes unitários validando a implementação
+
+### Open-Closed Principle
+- Exemplo de violação do princípio
+- Implementação correta seguindo o princípio
+- Testes demonstrando a extensibilidade
+
+### Liskov Substitution Principle
+- Caso de uso com problemas de substituição
+- Solução respeitando o princípio
+- Testes verificando o comportamento correto
+
+### Interface Segregation Principle
+- Exemplo de interfaces muito abrangentes
+- Refatoração aplicando o princípio
+- Testes validando a segregação
+
+### Dependency Inversion Principle
+- Demonstração de acoplamento forte
+- Solução com inversão de dependência
+- Testes unitários da implementação
+
 ## Como Executar
+
+### Frontend
 
 1. **Pré-requisitos**
    - Node.js instalado
@@ -40,64 +78,71 @@ Este repositório contém uma demonstração interativa dos padrões de projeto 
 
 2. **Instalação**
    ```bash
-   # Clone o repositório
-   git clone [url-do-repositorio]
-
-   # Entre no diretório do projeto
    cd frontend
-
-   # Instale as dependências
    npm install
    ```
 
-3. **Executando o Projeto**
+3. **Executando**
    ```bash
-   # Compile o TypeScript
    npm run build
-
-   # Inicie o servidor
    npm run serve
    ```
 
-4. **Acesse a Aplicação**
-   - Abra seu navegador e acesse `http://localhost:8080`
+### Backend
+
+1. **Instalação**
+   ```bash
+   cd backend/server/proxy_reversa
+   npm install
+   ```
+
+2. **Executando Testes**
+   ```bash
+   npm test
+   ```
+
+### Clean Code Examples
+
+1. **Instalação**
+   ```bash
+   cd clean-code
+   npm install
+   ```
+
+2. **Executando Testes**
+   ```bash
+   npm test
+   ```
 
 ## Estrutura do Projeto
 
 ```
-frontend/
-├── patterns/           # Implementações dos padrões
-│   ├── adapter.ts
-│   ├── decorator.ts
-│   ├── facade.ts
-│   ├── flyweight.ts
-│   ├── proxy.ts
-│   ├── bridge.ts
-│   └── composite.ts
-├── main.ts            # Lógica principal da aplicação
-├── index.html         # Interface do usuário
-└── tsconfig.json      # Configuração do TypeScript
+.
+├── frontend/
+│   ├── patterns/           # Implementações dos padrões estruturais
+│   ├── main.ts
+│   └── index.html
+├── backend/
+│   ├── patterns/          # Padrões de projeto backend
+│   └── server/
+│       └── proxy_reversa/ # Implementação do proxy reverso
+└── clean-code/
+    └── solid/            # Implementações dos princípios SOLID
+        ├── single-responsibility/
+        ├── open-closed/
+        ├── liskov-substitution/
+        ├── interface-segregation/
+        └── dependency-inversion/
 ```
-
-## Funcionalidades
-
-- Interface interativa para cada padrão
-- Exemplos práticos e realistas
-- Visualização em tempo real dos resultados
-- Código fonte bem documentado
-- Implementações em TypeScript
 
 ## Tecnologias Utilizadas
 
 - TypeScript
-- HTML5
-- CSS3
 - Node.js
-- http-server
+- Jest (Testes)
+- HTML5/CSS3
 
 ## Contribuindo
-
-Sinta-se à vontade para contribuir com o projeto:
 
 1. Faça um fork do repositório
 2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
